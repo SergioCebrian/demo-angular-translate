@@ -1,0 +1,19 @@
+<main class="wrap">
+    <section class="container">
+        <!--
+        <h1>{{ 'demo.title' | translate }}</h1>
+        <h3 [translate]="'demo.name'" [translateParams]="{ name: 'Sergio' }"></h3>
+        <article *ngFor="let cont of 'demo.content' | translate | keyvalue">
+            <p>{{ cont .value.text }}</p>
+        </article>
+        -->
+        <h1 translate [translateParams]="{ name: 'Home'}">demo.title</h1>
+
+        <article *ngFor="let cont of ('demo.content' | translate)">
+            <p>{{ cont.text }}</p>
+        </article>
+
+        <small translate [translateParams]="{ author: 'Javi García' }">demo.author.name</small> - 
+        <small translate [translateParams]="{ year: 2020 }">demo.author.date</small>
+    </section>
+</main>
