@@ -6,8 +6,12 @@ import { TranslateCompiler, TranslateLoader, TranslateModule } from '@ngx-transl
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import {TranslateMessageFormatCompiler} from 'ngx-translate-messageformat-compiler';
 
+// import { HeaderComponent } from './components/header/header.component';
+
 @NgModule({
-  declarations: [],
+  declarations: [
+    // HeaderComponent
+  ],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -26,6 +30,7 @@ import {TranslateMessageFormatCompiler} from 'ngx-translate-messageformat-compil
   ],
   exports: [
     TranslateModule
+    // HeaderComponent
   ]
 })
 export class SharedModule { }
