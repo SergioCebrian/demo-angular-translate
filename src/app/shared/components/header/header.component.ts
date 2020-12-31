@@ -9,8 +9,12 @@ import { TranslateService } from '@ngx-translate/core';
 export class HeaderComponent implements OnInit {
 
   constructor(private translateService: TranslateService) {
-    translateService.setDefaultLang('es'); // idioma a usar si no se encuentra la traducción con el idioma solicitado
-    translateService.use('es'); // idioma a usar si no encuentra el solicitado
+    this.translateService.setDefaultLang('es'); // idioma a usar si no se encuentra la traducción con el idioma solicitado
+    this.translateService.use('es'); // idioma a usar si no encuentra el solicitado
+    
+    this.translateService.get('demo.hello').subscribe((translate: string) => {
+      console.log(translate); // print 'Hola mundo'
+    }); 
   }
 
   useLanguage(lang: string): void {

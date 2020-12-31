@@ -1,19 +1,25 @@
 <main class="wrap">
     <section class="container">
         <!--
-        <h1>{{ 'demo.title' | translate }}</h1>
-        <h3 [translate]="'demo.name'" [translateParams]="{ name: 'Sergio' }"></h3>
-        <article *ngFor="let cont of 'demo.content' | translate | keyvalue">
+        <h1>{{ 'about.title' | translate }}</h1>
+        <h3 [translate]="'about.name'" [translateParams]="{ name: 'Sergio' }"></h3>
+        <article *ngFor="let cont of 'about.content' | translate | keyvalue">
             <p>{{ cont .value.text }}</p>
         </article>
         -->
-        <h1 translate [translateParams]="{ name: 'About' }">demo.title</h1>
+        <h1 translate [translateParams]="{ name: 'About' }">about.title</h1>
 
-        <article *ngFor="let cont of ('demo.content' | translate)">
+        <!-- 
+        Para traducir la fecha en español. null es el 2º parámetro que indica que no 
+        se quiere un timezone distinto al del usuario
+        -->
+        <time>{{ today | date: 'long': null: 'es' }} </time> 
+
+        <article *ngFor="let cont of ('about.content' | translate)">
             <p>{{ cont.text }}</p>
         </article>
 
-        <small translate [translateParams]="{ author: 'John Doe' }">demo.author.name</small> - 
-        <small translate [translateParams]="{ year: 2021 }">demo.author.date</small>
+        <small translate [translateParams]="{ author: 'John Doe' }">about.author.name</small> - 
+        <small translate [translateParams]="{ year: 2021 }">about.author.date</small>
     </section>
 </main>
