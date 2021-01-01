@@ -1,6 +1,7 @@
 {
-    "demo": {
-      "hello": "Hello World"
+    "menu": {
+        "home": "Home",
+        "about": "About us"
     },
     "home": {
         "title": "Are you in: {{ name }}",

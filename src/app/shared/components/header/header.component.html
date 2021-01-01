@@ -1,8 +1,8 @@
 <header>
     <div class="container">
         <nav>
-            <li><a title="Home" routerLink="/home" routerLinkActive="is-current" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
-            <li><a title="About" routerLink="/about" routerLinkActive="is-current" [routerLinkActiveOptions]="{exact: true}">About</a></li>
+            <li><a title="Home" [routerLink]="currentLang + '/home'" routerLinkActive="is-current" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+            <li><a title="About" [routerLink]="currentLang + '/about'" routerLinkActive="is-current" [routerLinkActiveOptions]="{exact: true}">About</a></li>
         </nav>
         <ul>
             <li><button type="button" (click)="useLanguage('es')">Es</button></li>

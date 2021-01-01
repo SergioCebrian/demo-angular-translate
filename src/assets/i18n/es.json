@@ -1,6 +1,7 @@
 {
-    "demo": {
-        "hello": "Hola mundo"
+    "menu": {
+        "home": "Inicio",
+        "about": "Nosotros"
     },
     "home": {
         "title": "Estás en: {{ name }}",

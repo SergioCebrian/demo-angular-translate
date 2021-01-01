@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { LanguageService } from 'src/app/core/services/language/language.service';
 
 @Component({
   selector: 'app-header',
@@ -8,20 +8,18 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private translateService: TranslateService) {
-    this.translateService.setDefaultLang('es'); // idioma a usar si no se encuentra la traducción con el idioma solicitado
-    this.translateService.use('es'); // idioma a usar si no encuentra el solicitado
-    
-    this.translateService.get('demo.hello').subscribe((translate: string) => {
-      console.log(translate); // print 'Hola mundo'
-    }); 
+  public currentLang: string;
+
+  constructor(
+    private languageService: LanguageService
+  ) {
+    this.currentLang = this.languageService.currentLang;
   }
 
   useLanguage(lang: string): void {
-    this.translateService.use(lang);
+    return this.languageService.useLanguage(lang);
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }
