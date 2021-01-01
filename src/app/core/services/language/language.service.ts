@@ -8,6 +8,8 @@ import { TranslateService } from '@ngx-translate/core';
 export class LanguageService {
   
   private currentUrl: string;
+  private getUrlLang = window.location.pathname.split('/')[1];
+  private languageUse: string;
   public currentLang: string;
   public languagesList = [ 'en', 'es' ];
   public languageDefault = this.languagesList[1];
@@ -16,15 +18,16 @@ export class LanguageService {
     private router: Router,
     private translateService: TranslateService
   ) { 
+    this.languageUse = (this.translateService.getBrowserLang() === this.getUrlLang) ? this.translateService.getBrowserLang() : this.getUrlLang;
     this.translateService.setDefaultLang('es'); // idioma a usar si no se encuentra la traducción con el idioma solicitado
-    this.translateService.use(this.translateService.getBrowserLang()); // idioma a usar si no encuentra el solicitado
+    this.translateService.use(this.languageUse); // idioma a usar si no encuentra el solicitado
     
-    this.currentLang = this.translateService.getBrowserLang();
+    this.currentLang = this.languageUse;
     this.currentUrl = this.router.url;
   }
   
   getLanguage() {
-    const userLanguage = this.translateService.getBrowserLang(); // return 'es'
+    const userLanguage = this.languageUse;
     return this.languagesList.includes(userLanguage) ? userLanguage : this.languageDefault;
   }
 

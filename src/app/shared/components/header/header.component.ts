@@ -19,7 +19,8 @@ export class HeaderComponent implements OnInit {
   }
 
   useLanguage(lang: string): void {
-    return this.languageService.useLanguage(lang);
+    this.languageService.useLanguage(lang);
+    this.currentLang = this.languageService.currentLang;
   }
 
   ngOnInit(): void { }

@@ -13,7 +13,7 @@
         Para traducir la fecha en español. null es el 2º parámetro que indica que no 
         se quiere un timezone distinto al del usuario
         -->
-        <time>{{ today | date: 'long': null: 'es' }}</time>
+        <time>{{ today | date: 'long': null: currentLang }}</time>
 
         <article *ngFor="let cont of ('home.content' | translate)">
             <p>{{ cont.text }}</p>
