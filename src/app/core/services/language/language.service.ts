@@ -14,7 +14,7 @@ export class LanguageService {
     private router: Router,
     private translateService: TranslateService
   ) { 
-    this.translateService.setDefaultLang('es'); // idioma a usar si no se encuentra la traducción con el idioma solicitado
+    this.translateService.setDefaultLang(this.languagesList[1]); // idioma a usar si no se encuentra la traducción en el idioma solicitado
     this.translateService.use(this.checkLanguage()); // idioma a usar si no encuentra el solicitado
   }
 
@@ -29,12 +29,8 @@ export class LanguageService {
   }
 
   setLanguage(lang: string): void {
-    this.translateService.use(lang);
-    this.refreshPage(lang);
-  }
-
-  refreshPage(lang: string): void {
     const currentUrlWithoutLang = this.router.url.split('/')[2];
+    this.translateService.use(lang);
     this.router.navigate([`${ lang }/${ currentUrlWithoutLang }`]);
   }
 
