@@ -14,13 +14,13 @@ export class HeaderComponent implements OnInit {
   constructor(
     private languageService: LanguageService
   ) {
-    this.currentLang = this.languageService.currentLang;
+    this.currentLang = this.languageService.checkLanguage();
     this.languagesList = this.languageService.languagesList;
   }
 
-  useLanguage(lang: string): void {
-    this.languageService.useLanguage(lang);
-    this.currentLang = this.languageService.currentLang;
+  setLanguage(lang: string): void {
+    this.languageService.setLanguage(lang);
+    this.currentLang = lang;
   }
 
   ngOnInit(): void { }

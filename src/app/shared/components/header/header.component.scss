@@ -53,6 +53,10 @@ ul {
         font-size: 0.6rem;
         text-transform: uppercase;
 
+        &:focus {
+            outline: 0;
+        }
+
         &.is-selected {
             background: #e74c3c;
             color: white;
