@@ -11,18 +11,16 @@ export class HeaderComponent implements OnInit {
   public currentLang: string;
   public languagesList: string[];
 
-  constructor(
-    private languageService: LanguageService
-  ) {
-    this.currentLang = this.languageService.checkLanguage();
+  constructor(private languageService: LanguageService) {
     this.languagesList = this.languageService.languagesList;
   }
 
   setLanguage(lang: string): void {
-    this.currentLang = lang;
     this.languageService.setLanguage(lang);
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    this.languageService.lang$.subscribe(val => this.currentLang = val);
+  }
 
 }

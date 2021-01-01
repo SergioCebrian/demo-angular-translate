@@ -21,8 +21,10 @@ export class LanguageService {
   }
 
   checkLanguage(): string {
-    const getUrlLang = window.location.pathname.split('/')[1];
-    return (this.translateService.getBrowserLang() === getUrlLang) ? this.translateService.getBrowserLang() : getUrlLang;
+    const getUrlLang = window.location.pathname.split('/')[1],
+          getLang = (this.translateService.getBrowserLang() === getUrlLang) ? this.translateService.getBrowserLang() : getUrlLang;
+    this.lang$.next(getLang);
+    return getLang;
   }
   
   getLanguage(): string {
