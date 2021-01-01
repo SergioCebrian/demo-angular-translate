@@ -20,7 +20,7 @@
         </nav>
         <ul>
             <li *ngFor="let lang of languagesList">
-                <button type="button" (click)="useLanguage(lang)">{{ lang }}</button>
+                <button type="button" (click)="useLanguage(lang)" [ngClass]="{'is-selected': currentLang === lang}">{{ lang }}</button>
             </li>
         </ul>
     </div>

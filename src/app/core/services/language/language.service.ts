@@ -8,9 +8,9 @@ import { TranslateService } from '@ngx-translate/core';
 export class LanguageService {
   
   private currentUrl: string;
-  private getUrlLang = window.location.pathname.split('/')[1];
   private languageUse: string;
   public currentLang: string;
+  public getUrlLang = window.location.pathname.split('/')[1];
   public languagesList = [ 'en', 'es' ];
   public languageDefault = this.languagesList[1];
 

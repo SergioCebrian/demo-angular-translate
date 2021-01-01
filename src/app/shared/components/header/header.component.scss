@@ -52,6 +52,11 @@ ul {
         box-sizing: border-box;
         font-size: 0.6rem;
         text-transform: uppercase;
+
+        &.is-selected {
+            background: #e74c3c;
+            color: white;
+        }
     }
 }
 
