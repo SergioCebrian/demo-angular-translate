@@ -1,12 +1,27 @@
 <header>
     <div class="container">
         <nav>
-            <li><a title="Home" [routerLink]="currentLang + '/home'" routerLinkActive="is-current" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
-            <li><a title="About" [routerLink]="currentLang + '/about'" routerLinkActive="is-current" [routerLinkActiveOptions]="{exact: true}">About</a></li>
+            <li>
+                <a [title]="('menu.home' | translate)" 
+                   [routerLink]="currentLang + '/home'" 
+                   routerLinkActive="is-current" 
+                   [routerLinkActiveOptions]="{exact: true}">
+                    {{ 'menu.home' | translate }}
+                </a>
+            </li>
+            <li>
+                <a [title]="('menu.about' | translate)" 
+                   [routerLink]="currentLang + '/about'" 
+                   routerLinkActive="is-current" 
+                   [routerLinkActiveOptions]="{exact: true}">
+                   {{ 'menu.about' | translate }}
+                </a>
+            </li>
         </nav>
         <ul>
-            <li><button type="button" (click)="useLanguage('es')">Es</button></li>
-            <li><button type="button" (click)="useLanguage('en')">En</button></li>
+            <li *ngFor="let lang of languagesList">
+                <button type="button" (click)="useLanguage(lang)">{{ lang }}</button>
+            </li>
         </ul>
     </div>
 </header>

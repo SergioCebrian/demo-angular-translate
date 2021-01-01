@@ -9,11 +9,13 @@ import { LanguageService } from 'src/app/core/services/language/language.service
 export class HeaderComponent implements OnInit {
 
   public currentLang: string;
+  public languagesList: string[];
 
   constructor(
     private languageService: LanguageService
   ) {
     this.currentLang = this.languageService.currentLang;
+    this.languagesList = this.languageService.languagesList;
   }
 
   useLanguage(lang: string): void {
