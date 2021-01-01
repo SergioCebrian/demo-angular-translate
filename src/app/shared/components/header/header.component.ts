@@ -19,8 +19,8 @@ export class HeaderComponent implements OnInit {
   }
 
   setLanguage(lang: string): void {
-    this.languageService.setLanguage(lang);
     this.currentLang = lang;
+    this.languageService.setLanguage(lang);
   }
 
   ngOnInit(): void { }

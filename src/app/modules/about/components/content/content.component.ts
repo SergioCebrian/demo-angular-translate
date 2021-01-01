@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { LanguageService } from 'src/app/core/services/language/language.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { LanguageService } from 'src/app/core/services/language/language.service
 })
 export class ContentComponent implements OnInit {
 
-  public currentLang: string;
+  public currentLang;
   public today: Date = new Date();
 
   constructor(
@@ -17,6 +18,8 @@ export class ContentComponent implements OnInit {
     this.currentLang = this.languageService.checkLanguage();
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    this.languageService.lang$.subscribe(val => this.currentLang = val);
+  }
 
 }

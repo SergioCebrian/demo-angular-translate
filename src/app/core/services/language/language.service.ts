@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,7 @@ export class LanguageService {
   
   public languagesList = [ 'en', 'es' ];
   public languageDefault = this.languagesList[1];
+  public lang$ = new Subject<string>();
 
   constructor(
     private router: Router,
@@ -18,12 +20,12 @@ export class LanguageService {
     this.translateService.use(this.checkLanguage()); // idioma a usar si no encuentra el solicitado
   }
 
-  checkLanguage() {
+  checkLanguage(): string {
     const getUrlLang = window.location.pathname.split('/')[1];
     return (this.translateService.getBrowserLang() === getUrlLang) ? this.translateService.getBrowserLang() : getUrlLang;
   }
   
-  getLanguage() {
+  getLanguage(): string {
     const userLanguage = this.checkLanguage();
     return this.languagesList.includes(userLanguage) ? userLanguage : this.languageDefault;
   }
@@ -31,6 +33,7 @@ export class LanguageService {
   setLanguage(lang: string): void {
     const currentUrlWithoutLang = this.router.url.split('/')[2];
     this.translateService.use(lang);
+    this.lang$.next(lang);
     this.router.navigate([`${ lang }/${ currentUrlWithoutLang }`]);
   }
 

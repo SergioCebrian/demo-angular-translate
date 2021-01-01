@@ -17,6 +17,8 @@ export class ContentComponent implements OnInit {
     this.currentLang = this.languageService.checkLanguage();
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    this.languageService.lang$.subscribe(val => this.currentLang = val);
+  }
 
 }
