@@ -12,6 +12,11 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: ':lang',
+    redirectTo: navigator.language + '/home',
+    pathMatch: 'full'
+  },
+  {
     path: ':lang/about',
     loadChildren: () => import('./modules/about/about.module').then( m => m.AboutModule)
   }
