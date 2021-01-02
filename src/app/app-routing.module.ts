@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: navigator.language + '/home',
     pathMatch: 'full'
   },
   {
